@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-cursive: "Dancing Script", cursive;
+  
+  --color-pastel-pink: #FFD6E8;
+  --color-pastel-lavender: #EAD7FF;
+  --color-pastel-peach: #FFE8D6;
+  --color-pastel-cream: #FFF9F5;
+  --color-pastel-rose: #FFB3D1;
+  --color-pastel-purple: #D4B2FF;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FFF9F5;
+  color: #4A4A4A;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom soft heartbeat animation */
+@keyframes pulseHeart {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+}
+
+.animate-heart-beat {
+  animation: pulseHeart 1.4s infinite ease-in-out;
+}
+
+/* Glassmorphism custom styling - lightweight without heavy blurs */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 24px 0 rgba(255, 182, 193, 0.08);
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s infinite ease-in-out;
+}
+
+/* Floating keyframes for continuous ambient hearts */
+@keyframes floatUp {
+  0% {
+    transform: translateY(105vh) translateX(0) scale(0.7) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--target-opacity, 0.35);
+  }
+  90% {
+    opacity: var(--target-opacity, 0.35);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(var(--drift-x, 40px)) scale(1.1) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-up {
+  animation: floatUp var(--duration, 12s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Hide default cursor on desktop when heart cursor trail is active */
+@media (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none !important;
+  }
+  .custom-cursor-active a, 
+  .custom-cursor-active button, 
+  .custom-cursor-active input, 
+  .custom-cursor-active [role="button"],
+  .custom-cursor-active select,
+  .custom-cursor-active textarea {
+    cursor: none !important;
+  }
+}
