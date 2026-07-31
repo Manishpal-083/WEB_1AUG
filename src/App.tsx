@@ -1,27 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
+import Navbar from "@/components/Navbar";
 import LoadingScreen from "@/components/LoadingScreen";
 import CursorTrail from "@/components/CursorTrail";
 import MusicPlayer from "@/components/MusicPlayer";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 import Hero from "@/sections/Hero";
-import OurStory from "@/sections/OurStory";
-import WhySpecial from "@/sections/WhySpecial";
-import MemoryGallery from "@/sections/MemoryGallery";
-import LoveLetter from "@/sections/LoveLetter";
-import PromiseCards from "@/sections/PromiseCards";
-import Countdown from "@/sections/Countdown";
-import Ending from "@/sections/Ending";
 
-// New premium interactive & decorative components
+// Lazy load below-the-fold sections
+const OurStory = lazy(() => import("@/sections/OurStory"));
+const WhySpecial = lazy(() => import("@/sections/WhySpecial"));
+const MemoryGallery = lazy(() => import("@/sections/MemoryGallery"));
+const LoveLetter = lazy(() => import("@/sections/LoveLetter"));
+const PromiseCards = lazy(() => import("@/sections/PromiseCards"));
+const Countdown = lazy(() => import("@/sections/Countdown"));
+const Ending = lazy(() => import("@/sections/Ending"));
+
+// Lazy load below-the-fold widgets
+const ConversationBubble = lazy(() => import("@/components/ConversationBubble"));
+const ReasonsCounter = lazy(() => import("@/components/ReasonsCounter"));
+const LoveMeter = lazy(() => import("@/components/LoveMeter"));
+const BucketList = lazy(() => import("@/components/BucketList"));
+const PlaylistCard = lazy(() => import("@/components/PlaylistCard"));
+const LoveCertificate = lazy(() => import("@/components/LoveCertificate"));
+
+// Keep static imports for lightweight components
 import BackgroundDecorations from "@/components/BackgroundDecorations";
 import EasterEggs from "@/components/EasterEggs";
-import ConversationBubble from "@/components/ConversationBubble";
-import ReasonsCounter from "@/components/ReasonsCounter";
-import LoveMeter from "@/components/LoveMeter";
-import BucketList from "@/components/BucketList";
-import PlaylistCard from "@/components/PlaylistCard";
-import LoveCertificate from "@/components/LoveCertificate";
 import { 
   StickmanHoldingHands, 
   StickmanGivingFlower, 
@@ -60,6 +65,9 @@ export default function App() {
       {/* A. Background Clouds, twinking stars, and butterflies */}
       <BackgroundDecorations />
 
+      {/* Sticky Responsive Navbar */}
+      <Navbar />
+
       {/* B. Floating Sticky Notes on side margins (Scrapbook feel) */}
       <div className="absolute top-[18%] left-[2%] md:left-[5%] rotate-[-4deg] bg-[#FFF275]/50 border border-yellow-200/50 p-2.5 rounded-lg shadow-3xs text-[10px] md:text-xs font-cursive font-bold text-yellow-850 z-10 pointer-events-auto select-none hover:scale-105 transition-transform">
         📌 Certified Cutie 🌸
@@ -95,8 +103,9 @@ export default function App() {
         {/* Section 1: Hero */}
         <Hero />
         
-        {/* Chat card block between sections */}
-        <ConversationBubble />
+        <Suspense fallback={null}>
+          {/* Chat card block between sections */}
+          <ConversationBubble />
         
         {/* Tiny Love Fact 1 */}
         <div className="py-6 text-center text-xs md:text-sm font-cursive font-bold text-pink-400 select-none">
@@ -163,7 +172,7 @@ export default function App() {
         {/* ====================================================== */}
         {/* 🎀 NEW: THE INTERACTIVE FUN SCRAPBOOK CORNER 🎀 */}
         {/* ====================================================== */}
-        <div className="w-full max-w-4xl px-6 py-12">
+        <div id="fun-corner" className="w-full max-w-4xl px-6 py-12">
           
           <div className="text-center mb-12 space-y-2">
             <span className="text-pink-500/80 text-xs font-bold tracking-widest uppercase">Fun Corner</span>
@@ -202,6 +211,7 @@ export default function App() {
 
         {/* Section 8: Final Click Confetti Beating Heart */}
         <Ending />
+        </Suspense>
       </div>
 
       {/* Footer */}

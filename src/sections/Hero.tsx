@@ -23,7 +23,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative px-6 py-20 text-center select-none overflow-hidden">
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative px-6 py-20 text-center select-none overflow-hidden">
       
       {/* 5-6 Lightweight floating hearts in Hero (GPU optimized) */}
       <div className="absolute inset-x-0 bottom-0 top-1/4 pointer-events-none overflow-hidden z-0">

@@ -34,7 +34,16 @@ export default function Ending() {
           animate={clicked ? { scale: [1, 1.15, 1.1] } : { scale: [1, 1.08, 1] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           whileHover={{ scale: 1.12 }}
-          className="relative w-32 h-32 flex items-center justify-center cursor-pointer select-none filter drop-shadow-[0_8px_16px_rgba(255,90,143,0.18)]"
+          role="button"
+          tabIndex={0}
+          aria-label="Interactive pulsing heart. Click me for a celebration surprise!"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              handleHeartClick();
+            }
+          }}
+          className="relative w-32 h-32 flex items-center justify-center cursor-pointer select-none filter drop-shadow-[0_8px_16px_rgba(255,90,143,0.18)] rounded-full focus-visible:outline-2 focus-visible:outline-pink-400 focus-visible:outline-offset-2"
           onClick={handleHeartClick}
         >
           <div className="absolute w-16 h-16 bg-gradient-to-tr from-pink-500 to-pink-400 rounded-full -translate-x-8" />

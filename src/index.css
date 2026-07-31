@@ -105,3 +105,20 @@ body {
     cursor: none !important;
   }
 }
+
+/* Offset sections to align with sticky header */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}

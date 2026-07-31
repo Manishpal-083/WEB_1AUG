@@ -153,7 +153,7 @@ export default function Countdown() {
   const countdown = getCountdownTime();
 
   return (
-    <section className="py-20 px-6 max-w-5xl mx-auto text-center relative select-none">
+    <section id="countdown" className="py-20 px-6 max-w-5xl mx-auto text-center relative select-none">
       
       {/* Floating hearts overlay inside celebration context */}
       {isCelebration && (

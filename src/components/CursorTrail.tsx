@@ -77,6 +77,11 @@ export default function CursorTrail() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    const handleMouseLeave = () => {
+      mouse.x = -100;
+      mouse.y = -100;
+    };
+    window.addEventListener("mouseleave", handleMouseLeave);
 
     // Draw function to draw a clean vector heart on canvas
     const drawHeart = (c: CanvasRenderingContext2D, x: number, y: number, size: number) => {
@@ -136,6 +141,7 @@ export default function CursorTrail() {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationId);
       document.body.classList.remove("custom-cursor-active");
     };

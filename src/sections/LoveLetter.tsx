@@ -5,7 +5,7 @@ export default function LoveLetter() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="py-20 px-6 max-w-4xl mx-auto text-center relative flex flex-col items-center justify-center select-none">
+    <section id="love-letter" className="py-20 px-6 max-w-4xl mx-auto text-center relative flex flex-col items-center justify-center select-none">
       
       {/* Header */}
       <div className="text-center mb-16 space-y-2">
@@ -20,7 +20,16 @@ export default function LoveLetter() {
 
       {/* Envelope Container */}
       <div 
-        className="relative w-[320px] h-[210px] md:w-[370px] md:h-[240px] mb-8 cursor-pointer select-none" 
+        role="button"
+        tabIndex={0}
+        aria-label={isOpen ? "Close envelope letter" : "Open envelope letter"}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }
+        }}
+        className="relative w-[320px] h-[210px] md:w-[370px] md:h-[240px] mb-8 cursor-pointer select-none rounded-2xl focus-visible:outline-2 focus-visible:outline-pink-400 focus-visible:outline-offset-4" 
         onClick={() => setIsOpen(!isOpen)}
         style={{ perspective: "1000px" }}
       >

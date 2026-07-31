@@ -91,7 +91,7 @@ export default function MemoryGallery() {
   const activePhoto = activeIndex !== null ? memoryPhotos[activeIndex] : null;
 
   return (
-    <section className="py-20 px-6 max-w-4xl mx-auto relative select-none">
+    <section id="gallery" className="py-20 px-6 max-w-4xl mx-auto relative select-none">
       
       {/* Header */}
       <div className="text-center mb-16 space-y-2">
@@ -121,7 +121,16 @@ export default function MemoryGallery() {
               zIndex: 10
             }}
             onClick={() => handleOpen(idx)}
-            className="bg-white p-4 pb-7 rounded-lg shadow-xs border border-gray-150 flex flex-col items-center gap-4 cursor-pointer w-[280px] md:w-[310px] transform select-none relative overflow-visible"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleOpen(idx);
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label={`Open memory photo: ${photo.title}`}
+            className="bg-white p-4 pb-7 rounded-lg shadow-xs border border-gray-150 flex flex-col items-center gap-4 cursor-pointer w-[280px] md:w-[310px] transform select-none relative overflow-visible focus-visible:outline-2 focus-visible:outline-pink-400 focus-visible:outline-offset-2"
           >
             {/* Scrapbook Tape effect */}
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-20 h-7 bg-pink-100/50 backdrop-blur-xs rotate-[-3deg] border-l border-r border-dashed border-pink-200/40 shadow-3xs pointer-events-none" />
@@ -169,17 +178,18 @@ export default function MemoryGallery() {
               <span className="font-serif text-sm text-white/80 italic">
                 {activePhoto.title}
               </span>
-              
               <div className="flex items-center gap-3">
                 <button
                   onClick={handleToggleZoom}
-                  className="text-white bg-white/10 hover:bg-white/20 p-2.5 rounded-full cursor-pointer transition-colors"
+                  className="text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full cursor-pointer transition-colors"
+                  aria-label={zoomScale === 1 ? "Zoom in" : "Zoom out"}
                 >
                   {zoomScale === 1 ? <ZoomIn size={16} /> : <ZoomOut size={16} />}
                 </button>
                 <button
                   onClick={handleClose}
-                  className="text-white bg-white/10 hover:bg-white/20 p-2.5 rounded-full cursor-pointer transition-colors"
+                  className="text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full cursor-pointer transition-colors"
+                  aria-label="Close image popup"
                 >
                   <X size={16} />
                 </button>

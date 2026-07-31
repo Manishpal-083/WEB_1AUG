@@ -64,7 +64,7 @@ export default function MusicPlayer() {
         {/* Play/Pause control */}
         <button
           onClick={togglePlay}
-          className="w-8 h-8 rounded-full bg-gradient-to-r from-pink-400 to-[#FF5A8F] text-white flex items-center justify-center cursor-pointer shadow hover:scale-105 active:scale-95 transition-all"
+          className="relative w-8 h-8 rounded-full bg-gradient-to-r from-pink-400 to-[#FF5A8F] text-white flex items-center justify-center cursor-pointer shadow hover:scale-105 active:scale-95 transition-all before:absolute before:-inset-2 before:content-['']"
           aria-label={isPlaying ? "Pause music" : "Play music"}
         >
           {isPlaying ? <Pause size={13} fill="white" /> : <Play size={13} className="ml-[2px]" fill="white" />}
@@ -74,7 +74,7 @@ export default function MusicPlayer() {
         <button
           onClick={toggleMute}
           disabled={!isPlaying}
-          className={`w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+          className={`relative w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer before:absolute before:-inset-2.5 before:content-[''] ${
             isPlaying ? "text-pink-500 hover:bg-pink-100/30" : "text-zinc-400 cursor-not-allowed"
           }`}
           aria-label={isMuted ? "Unmute" : "Mute"}

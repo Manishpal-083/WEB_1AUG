@@ -60,7 +60,7 @@ const colors = ["#FF5A8F", "#FF8DA1", "#D4B2FF", "#FFB3D1", "#FFD6E8"];
 
 export default function WhySpecial() {
   return (
-    <section className="py-20 px-6 max-w-5xl mx-auto relative select-none">
+    <section id="why-special" className="py-20 px-6 max-w-5xl mx-auto relative select-none">
       
       {/* Handcrafted absolute text stickers placed floating in background */}
       <div className="absolute top-[10%] left-[-4%] rotate-[-6deg] text-[10px] md:text-xs font-cursive font-bold text-pink-400 bg-pink-50/50 border border-pink-200/40 px-3 py-1 rounded-full shadow-3xs hidden sm:block">
@@ -116,6 +116,15 @@ function SpecialCard({ item }: { item: SpecialItem }) {
     <motion.div
       onMouseEnter={triggerHeartBurst}
       onClick={triggerHeartBurst}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          triggerHeartBurst();
+        }
+      }}
+      tabIndex={0}
+      role="button"
+      aria-label={`Reason: ${item.title}. ${item.desc}`}
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -127,7 +136,7 @@ function SpecialCard({ item }: { item: SpecialItem }) {
         boxShadow: "0 10px 22px rgba(255, 182, 193, 0.12)"
       }}
       style={{ rotate: tilt }}
-      className="glass-card p-6 rounded-[22px] flex flex-col items-center text-center gap-3.5 cursor-pointer relative overflow-visible border border-white/60 shadow-3xs"
+      className="glass-card p-6 rounded-[22px] flex flex-col items-center text-center gap-3.5 cursor-pointer relative overflow-visible border border-white/60 shadow-3xs focus-visible:outline-2 focus-visible:outline-pink-400 focus-visible:outline-offset-2"
     >
       {/* Pin badge styling */}
       <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-2xl shadow-inner">
