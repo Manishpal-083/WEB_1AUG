@@ -129,13 +129,13 @@ export default function LoveLetter() {
                   Looking at your old photos, from when you were just a tiny kid wrapped in a towel, to how gorgeous you look today, it just hits me how lucky I am. My prettiest girl, my sweet Champaa.
                 </p>
                 <p>
-                  You are my absolute favorite human. Thank you for listening to my dumb jokes, staying up with me, and being my safe space when everything gets loud. I promise to support you, make you laugh, and choose you every single time.
+                  You are my absolute favorite human, hn favorite hooman h tu mera kuchupuchu. Thank you for listening to my dumb jokes, staying up with me, and being my safe space when everything gets loud. I promise to support you, make you laugh, and choose you every single time.
                 </p>
                 <p>
                   Happy Girlfriend Day, my Butkii. I love you, Faguniyaa. More than my words will ever be able to explain.
                 </p>
                 <p className="text-right font-bold text-pink-500 mt-6 text-3xl">Yours forever and always,</p>
-                <p className="text-right font-bold text-pink-500 text-3xl">Gooddooo Chimu ❤️</p>
+                <p className="text-right font-bold text-pink-500 text-3xl">TINDASUR ❤️</p>
               </div>
             </motion.div>
           </motion.div>

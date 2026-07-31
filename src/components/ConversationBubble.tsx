@@ -11,8 +11,8 @@ const chats: ChatMessage[] = [
   { sender: "her", text: "Pagal ❤️", time: "11:12 PM" },
   { sender: "me", text: "Meri Champudii.", time: "11:12 PM" },
   { sender: "her", text: "Hmmmm.", time: "11:13 PM" },
-  { sender: "me", text: "Love you.", time: "11:14 PM" },
-  { sender: "her", text: "Thoda sa.", time: "11:14 PM" },
+  { sender: "me", text: "I Love you 2 .", time: "11:14 PM" },
+  { sender: "her", text: "bkl mil sale tu gndu 😤.", time: "11:14 PM" },
 ];
 
 export default function ConversationBubble() {
@@ -27,7 +27,7 @@ export default function ConversationBubble() {
           </div>
           <div className="text-left">
             <h4 className="font-sans text-xs font-bold text-white leading-none">
-              Champudii ❤️
+              Champa ❤️
             </h4>
             <span className="text-[9px] text-pink-100 font-semibold uppercase tracking-wider mt-0.5 inline-block">
               Online

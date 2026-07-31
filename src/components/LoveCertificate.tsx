@@ -37,7 +37,7 @@ export default function LoveCertificate() {
           <p className="text-xs text-zinc-400 font-semibold tracking-wider uppercase leading-none">has been permanently captured by</p>
           
           <h4 className="font-serif text-2xl font-extrabold text-gray-800 leading-tight">
-            Gooddooo Chimu ❤️
+            Tindasur ❤️
           </h4>
         </div>
 
@@ -49,7 +49,7 @@ export default function LoveCertificate() {
           </div>
           <div className="space-y-1 pl-4">
             <span className="text-[8px] font-bold text-zinc-400 uppercase tracking-widest leading-none">Punishment for leaving</span>
-            <p className="font-sans text-[11px] font-bold text-zinc-600 leading-tight mt-1">Unlimited Hugs 🤍</p>
+            <p className="font-sans text-[11px] font-bold text-zinc-600 leading-tight mt-1">Unlimited Hugs with lots of gilli puchhian🤍</p>
           </div>
         </div>
 

@@ -12,8 +12,8 @@ const defaultItems: BucketItem[] = [
   { id: "3", text: "Sunset Together 🌅" },
   { id: "4", text: "Watch Rain Together 🌧️" },
   { id: "5", text: "Late Night Walk 🌙" },
-  { id: "6", text: "Movie Marathon 🍿" },
-  { id: "7", text: "Build Our Dream Home 🏡" },
+  { id: "6", text: "Movie Marathon with sek suk eheheh 🍿" },
+  { id: "7", text: "Build Our Dream Home and again sek suk🏡" },
   { id: "8", text: "Grow Old Together ❤️" },
 ];
 
